@@ -1,0 +1,45 @@
+% ********************************************
+% Pacchetti	
+% ********************************************
+
+\documentclass[10pt,a4paper]{report}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb,amsmath}
+\usepackage{geometry}
+\usepackage[english]{babel}  
+\usepackage[bookmarks=true]{hyperref}
+\usepackage{bookmark}
+\usepackage{blindtext}
+\usepackage{enumitem}
+\usepackage{pifont} 	%for strange simbols
+\usepackage{wrapfig}
+% ********************************************
+% Configurazioni
+% ********************************************	
+\newcommand{\rom}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
+
+\hypersetup{
+	pdftitle={RF Systems},%
+	pdfauthor={Edoardo Contini},%
+	pdfsubject={RF Systems},%
+	pdfkeywords={},%
+	colorlinks=true,%
+	linkcolor=blue,%
+	linktocpage=true,%
+	pageanchor=true
+}
+
+% *****************************
+% Note Custom
+% *****************************
+\usepackage{xargs}   % più argomenti nei comandi
+\usepackage[pdftex,dvipsnames]{xcolor}  % testo colorato e simili
+\usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
+\newcommandx{\unsure}[2][1=]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
+\newcommandx{\change}[2][1=]{\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
+\newcommandx{\info}[2][1=]{\todo[linecolor=OliveGreen,backgroundcolor=OliveGreen!25,bordercolor=OliveGreen,#1]{#2}}
+\newcommandx{\improvement}[2][1=]{\todo[linecolor=Plum,backgroundcolor=Plum!25,bordercolor=Plum,#1]{#2}}
+\newcommandx{\thiswillnotshow}[2][1=]{\todo[disable,#1]{#2}}
+\reversemarginpar
+\setlength{\marginparwidth}{2cm}
