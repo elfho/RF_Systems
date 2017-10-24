@@ -1,6 +1,24 @@
 \chapter{Antennas} % (fold)
 \label{cha:antennas}
 
+\section{Antennas Parameters} % (fold)
+\label{sec:antennas_parameters}
+
+\subsection{Directive Gain} % (fold)
+\label{sub:directive_gain}
+
+The power radiated by an antenna depends on the direction. The \textit{directive gain} toward a given direction is expressed as:
+
+\begin{equation}
+	D ( \theta, \phi) = \frac {Radiation \ \ Intensity} {Isotropic \ \ Intensity } = 	    \frac{ U(\theta , \phi)} {P_{rad}/ 4\pi}
+\end{equation}
+
+% subsection directive_gain (end)
+
+
+% section antennas_parameters (end)
+
+
 \section{Radio Link} % (fold)
 \label{sec:radio_link}
 
@@ -16,7 +34,7 @@
 	\label{fig:link}
 \end{figure}
 
-Supposing to have a Radio Link as in Figure~\ref{fig:link} between 2 Antennas at a certain relative distance R the link budget may be evaluated by means of the \textbf{Friis equation} which at the end leds to a simple analitical expression for the receiving power:
+Supposing to have a Radio Link as in Figure~\ref{fig:link} between 2 Antennas at a certain relative distance R the link budget may be evaluated by means of the \textbf{Friis equation} which at the end leds to a simple analitical expression for the receiving power\footnote{which is the logaritmic form of the Friis equation}:
 
 \begin{equation}	
 P_{r|_{dB}} = P_{t|_{dB}} - 10 \log{frac{\lambda}{4\pi R}} + G_{t|_{dB}} + G_{r|_{dB}} 
@@ -36,20 +54,25 @@ Note from a practical point of view there as at least a couple of DoF in the des
 
 % subsection link_budget (end)
 
-\subsection{Antennas' Gain} % (fold)
-\label{sub:antennas_gain}
 
+\subsection{Attenuators' Noise} % (fold)
+\label{sub:noise_of_attenuators}
 
+In any RF receiver we are going to have at least some losses between the antenna and the LNA. Sometimes also in other sections of the receiver path attenuation couldn't be avoided.
+We may evaluate the additional noise introduced my an attenuator $A_{f1}$ for example the one in Figure~\ref{fig:Teq} as:
 
+\begin{equation}
+	T_{f1}= T_0 (10^ { \frac {A_{f1}} {10} }-1)
+\end{equation}
 
+% subsection noise_of_attenuators (end)
 
-% subsection antennas_gain (end)
 
 
 \subsection{Equivalent Temperature} % (fold)
 \label{sub:equivalent_temperature}
 
-\begin{figure}[h]
+\begin{figure} [h!]
 	\centering
 	\includegraphics[scale=1]{Immagini/Teq}
 	
@@ -69,6 +92,13 @@ At the end for the example in figure we get:
 	T_{sys}=T_{eq}= T_a + T_{f1} + T_{LNA} A_{f1}+ T_{f2} \frac { A_{f1} } {G_{LNA}} + T_{SSB} \frac { A_{f1} A_{f2} } {G_{LNA}}
 \end{equation}
 
+where:
+\begin{itemize}
+	\item $T_{f1}$ is the noise introduced by the first attenuator
+	\item $T_{LNA}$ is the noise introduced by the LNA
+	\item $T_{f2}$ is the noise introduced by the second attenuator
+	\item $T_{SSB}$ is the noise introduced by the mizer
+\end{itemize}
 With the same concept we may find the \textit{Output Referred Noise} $T_out$ by simply applyng the relative transfer function at each noise to the ouput:
 
 \begin{equation}

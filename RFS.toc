@@ -1,0 +1,8 @@
+\select@language {english}
+\contentsline {chapter}{\numberline {1}Antennas}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Antennas Parameters}{1}{section.1.1}
+\contentsline {subsection}{\numberline {1.1.1}Directive Gain}{1}{subsection.1.1.1}
+\contentsline {section}{\numberline {1.2}Radio Link}{1}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}Link Budget}{1}{subsection.1.2.1}
+\contentsline {subsection}{\numberline {1.2.2}Attenuators' Noise}{2}{subsection.1.2.2}
+\contentsline {subsection}{\numberline {1.2.3}Equivalent Temperature}{2}{subsection.1.2.3}
