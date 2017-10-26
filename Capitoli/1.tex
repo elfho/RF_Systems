@@ -27,7 +27,7 @@ There is a direction $(\theta_{MAX},\phi_{MAX})$ where D is maximum. The directi
 $D_M$ represents the ratio between the radiated power density in the direction where it is maximum divided by the power density obtained with an isotropic radiator:
 
 \begin{equation}
-	D_M= \int_0^{2\pi}\int_0^{2\pi} f(\theta,\phi)sin(\phi) d\theta d\phi
+	D_M=\frac{4 \pi }{ \int_0^{2\pi}\int_0^{2\pi} f(\theta,\phi)sin(\phi) d\theta d\phi}
 \end{equation}
 
 % subsection _d_m_ (end)
@@ -59,6 +59,34 @@ The radiated power intensity results:
 S_R(R,\theta,\phi)= \frac{P_{rad}}{4\pi R^2} \textit{D}(\theta, \phi)
 \end{equation}
 
+From the formula of the power density at distance R we can derive the net radiated power:
+
+\begin{equation}
+	P_{rad}= \iint_{\Sigma} S_R(R, \theta, \phi)\, d\Sigma = \frac{P_{rad}D_{MAX}}{4 \pi R^2}\iint_{\Sigma} f(\theta, \phi) \, d\Sigma
+\end{equation}
+
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.6]{Immagini/sph}	
+	\label{fig:sph}
+\end{figure}
+
+\begin{equation}
+	P_{rad} = \frac {P_{rad}D_{MAX}}{4 \pi}\int_0^{ \pi}\int_0^{2 \pi} \sin(\theta) f(\theta, \phi) d\theta d\phi
+\end{equation}
+
+from which:
+
+\begin{equation}
+	\frac{1}{D_{MAX}}=\frac{\eta}{G}= \frac{1}{4 \pi} \int_0^{\pi}\int_0^{2 \pi} \sin(\theta) f(\theta, \phi) d\theta d\phi
+\end{equation}
+
+and :
+
+\begin{equation}
+	G =\frac { 4\pi \eta}{\int_0^{ \pi}\int_0^{2 \pi} \sin(\theta) f(\theta, \phi) d\theta d\phi}
+\end{equation}
 % subsection radiated_power_density (end)
 
 \subsection{Fields Intensity} % (fold)
@@ -140,7 +168,7 @@ the gain is one of the fundamental paraments that describes an antenna.
 	\includegraphics[scale=0.3]{Immagini/SR}
 	
 	\caption{Simplified scheme of a Radio Link with an additiona power density from an non optimal direction}
-	\label{fig:link}
+	\label{fig:SR}
 \end{figure}
 
 Given the power density ($S_R$)\footnote{magnitude of the Poynting vector} and the direction of arrival ($ \theta $) of an incident radiation the received power can be calculated as:
