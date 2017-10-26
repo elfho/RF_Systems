@@ -214,6 +214,69 @@ The equivalent length can be related to the effective area using the following f
 
 % section antennas_parameters (end)
 
+\section{Dish Antennas} % (fold)
+\label{sec:dish_antennas}
+
+\subsection{Gain} % (fold)
+\label{sub:gain}
+
+\begin{equation}
+	G=A_e\frac{4 \pi}{\lambda^2}
+\end{equation}
+
+
+% subsection gain (end)
+
+
+\subsection{Effective Area} % (fold)
+\label{sub:effective_area}
+
+
+
+\begin{equation}
+	A_e = e_a \frac{1}{4} \pi d^2
+\end{equation}
+
+where:
+
+\begin{itemize}
+	\item $e_a$ is the aperture efficiency (0.55 - 0.65) 
+	\item d = Dish diameter
+\end{itemize}
+
+
+% subsection effective_area (end
+
+
+\subsection{Beamwidth} % (fold)
+\label{sub:beamwidth}
+
+\begin{equation}
+	cos(\phi_B)=  1- \frac{2}{D_{MAX}}=  1 - \frac {2\eta} {\pi^2 e_a^2} \left( \frac{\lambda}{d} \right)^2
+\end{equation}
+
+% subsection beamwidth (end)
+
+
+
+
+\subsection{Free-space Attenuation} % (fold)
+\label{sub:free_space_attenuation}
+
+\begin{equation}
+	A_{dB} = 20log_{10} \left( \frac{4 \pi L}{\lambda} \right)
+\end{equation}
+
+
+% subsection free_space_attenuation (end)
+
+
+
+
+
+% section dish_antennas (end)
+
+
 
 \section{Radio Link} % (fold)
 \label{sec:radio_link}
@@ -396,6 +459,8 @@ from this we are able to find $f_{LO}$ and then:
 		f_{IM}=f_{LO}-f_{IF}= f_{RF}-2f_{IF}
 \end{equation}
 
+% section image (end)
+
 \section{Cascaded Noise Figure} % (fold)
 \label{sec:cascaded_noise_figure}
 
@@ -407,10 +472,18 @@ The evalutation of the Noise figure of cascaded stage could be performed with th
 
 % section cascaded_noise_figure (end)
 
+\section{Cascaded Stage IIP3} % (fold)
+\label{sec:cascaded_stage_iip3}
+
+\begin{equation}
+\left ( \frac {1} {IIP3} \right)^2 = \left( \frac {1} {IIP3_1}  \right)^2 + \left( \frac{G_1}{IIP3_2}  \right)^2 + \left( \frac {G_1G_2} {IIP3_3}  \right)^2 + ...\left( \frac {G_1G_2...G_{n-1}} {IIP3_n}  \right)^2
+\end{equation}
 
 
-% subsection example (end)
 
-% section image (end)
+% section cascaded_stage_iip3 (end)
+
+
+
 
 % chapter receivers (end)
