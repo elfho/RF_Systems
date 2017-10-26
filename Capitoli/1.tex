@@ -15,6 +15,23 @@ The power radiated by an antenna depends on the direction. The \textit{directive
 
 % subsection directive_gain (end)
 
+\subsection{Directivity function and $D_M$ definition} % (fold)
+\label{sub:_d_m_}
+
+There is a direction $(\theta_{MAX},\phi_{MAX})$ where D is maximum. The directivity function is the function D normalized to $D_M$:
+
+\begin{equation}
+	f(\theta,\phi)=\frac{ \textit{D}(\theta,\phi)}{D_M} \ \ \ \Longrightarrow S_R(R,\theta,\phi)= \frac{P_{rad}}{4\pi R^2} D_M f(\theta,\phi)
+\end{equation}
+
+$D_M$ represents the ratio between the radiated power density in the direction where it is maximum divided by the power density obtained with an isotropic radiator:
+
+\begin{equation}
+	D_M= \int_0^{2\pi}\int_0^{2\pi} f(\theta,\phi)sin(\phi) d\theta d\phi
+\end{equation}
+
+% subsection _d_m_ (end)
+
 \subsection{Radiated Power Density} % (fold)
 \label{sub:radiated_power_density}
 
@@ -24,19 +41,95 @@ It is usefull to evaluate the radiated power density as it can be used for an an
 	S_R=\frac{dP_{rad}}{ds}=\frac{1}{2}Re(E\times H^*)=\frac{1}{R^2}\textit{U}(\theta,\phi)
 \end{equation}
 
-subsubsection*{Isotropic Radiatio}
+\subsubsection*{Isotropic Radiation}
 
 In case of isotropic radiation the radiation intensity $\textit{U}(\theta,\phi)= \frac{P_{rad}}{4\pi}$ 
 
-subsubsection*{Non Isotropic Radiatio}
+\subsubsection*{Non Isotropic Radiation}
 
 In non isotropic cases we get that the radiotion intensity is:
 
 \begin{equation}
 \textit{U}(\theta,\phi)= \frac{P_{rad}}{4\pi} \textit{D}(\theta, \phi)
 \end{equation}
+
+
+The radiated power intensity results:
+\begin{equation}
+S_R(R,\theta,\phi)= \frac{P_{rad}}{4\pi R^2} \textit{D}(\theta, \phi)
+\end{equation}
+
 % subsection radiated_power_density (end)
 
+\subsection{Fields Intensity} % (fold)
+\label{sub:fields_intensity}
+
+The radiated Power can be also related to the intensity of the electromagnetic fields:
+
+\begin{equation}
+	S_R=\frac{1}{2}\frac{\sqrt{\epsilon_r}}{Z_0}|E|^2= \frac{1}{2}\frac{Z_0}{\sqrt{\epsilon_r}}|H|^2
+\end{equation}
+
+The power density from a transmitting antenna (PT , G)
+at distance R along the direction of maximum radiation
+is given by: 
+
+\begin{equation}	
+S_R= \frac{P_TG}{4 \pi R^2}
+\end{equation}
+
+
+Then:
+
+\begin{equation}
+	|E| = \frac{1}{R} \sqrt{\frac{Z_0 P_{ERP}}{2\pi \sqrt{\epsilon_r}}} \ \ \ [V/m]
+\end{equation}
+
+
+\begin{equation}
+	|H| = \frac{1}{R} \sqrt{\frac{\sqrt{\epsilon_r} P_{ERP}}{2\pi Z_0}} \ \ \ [A/m]
+\end{equation}
+% subsection fields_intensity (end)
+
+
+\subsection{Efficienty of Antennas} % (fold)
+\label{sub:efficienty_of_antennas}
+
+The impedance “seen” by the transmitter is determined by 2 contributes: $Z_R$ \footnote{radiation impedance} and $R_p$ \footnote{loss resistance}. The power dissipated by $Z_R$ constitutes the radiated power\footnote{Typically $R_p \ll |Z_R|$}.
+
+Assuming the reader aware of maximum power transfer theorem, neglecting the losses resistances because as stated before negligible in respect of the radiation impedence, we will assume impedence matching.
+
+To understand how much of the electrical power is actually translated in radiated power the antenna efficiency can be defined as:
+
+\begin{equation}
+  	\eta = \frac{P_{rad}}{P_T}= \frac{Re\{ Z_R \}}{Re\{ Z_R \}+R_p}
+  \end{equation}  
+
+% subsection efficienty_of_antennas (end)
+
+\subsection{Effective Radiated Power} % (fold)
+\label{sub:effective_radiated_power}
+
+The effective radiated power if simply defined as:
+
+\begin{equation}
+	P_{ERP} = P_TG 
+\end{equation}
+
+
+\subsection{Gain of Antennas} % (fold)
+\label{sub:gain_of_antenna}
+
+Defined as:
+
+\begin{equation}
+	G = \eta D_M
+\end{equation}
+
+the gain is one of the fundamental paraments that describes an antenna.
+
+% subsection gain_of_antenna (end)
+% subsection effective_radiated_power (end)
 
 \subsection{Received Power} % (fold)
 \label{sub:received_power}
