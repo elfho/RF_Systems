@@ -15,6 +15,81 @@ The power radiated by an antenna depends on the direction. The \textit{directive
 
 % subsection directive_gain (end)
 
+\subsection{Radiated Power Density} % (fold)
+\label{sub:radiated_power_density}
+
+It is usefull to evaluate the radiated power density as it can be used for an analysis of propagation of power towards the threedimensional space.
+
+\begin{equation}
+	S_R=\frac{dP_{rad}}{ds}=\frac{1}{2}Re(E\times H^*)=\frac{1}{R^2}\textit{U}(\theta,\phi)
+\end{equation}
+
+subsubsection*{Isotropic Radiatio}
+
+In case of isotropic radiation the radiation intensity $\textit{U}(\theta,\phi)= \frac{P_{rad}}{4\pi}$ 
+
+subsubsection*{Non Isotropic Radiatio}
+
+In non isotropic cases we get that the radiotion intensity is:
+
+\begin{equation}
+\textit{U}(\theta,\phi)= \frac{P_{rad}}{4\pi} \textit{D}(\theta, \phi)
+\end{equation}
+% subsection radiated_power_density (end)
+
+
+\subsection{Received Power} % (fold)
+\label{sub:received_power}
+
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.3]{Immagini/SR}
+	
+	\caption{Simplified scheme of a Radio Link with an additiona power density from an non optimal direction}
+	\label{fig:link}
+\end{figure}
+
+Given the power density ($S_R$)\footnote{magnitude of the Poynting vector} and the direction of arrival ($ \theta $) of an incident radiation the received power can be calculated as:
+
+\begin{equation}
+	P_r=A_{\textit{e}} S_R f(\theta)
+\end{equation}
+
+where:
+
+\begin{itemize}
+	\item $A_{\textit{e}}$ is the \textbf{effective Area} of the anttenna
+	\item $f(\theta)$ is the directivity function
+
+\end{itemize}
+
+
+% subsection received_power (end)
+
+
+\subsection{Effective Area} % (fold)
+\label{sub:effective_area}
+
+
+
+\begin{equation}
+	\frac{G}{A_e}=\frac{4 \pi }{\lambda^2}
+\end{equation}
+
+% subsection effective_area (end)
+
+
+\subsection{Equivalent length} % (fold)
+\label{sub:equivalent_length}
+
+The equivalent length can be related to the effective area using the following formula:
+
+
+
+% subsection equivalent_length (end)
+
+
 
 % section antennas_parameters (end)
 
@@ -52,6 +127,13 @@ in which:
 while the term $20\log{ \frac{\lambda}{4 \pi R} }$ stands for the free space losses.
 Note from a practical point of view there as at least a couple of DoF in the design flow to obtain a certain receiving power.
 
+We may also report the linear form of the \textbf{Friis equation}:
+
+\begin{equation}
+P_r = P_t  \left( \frac { \lambda } {4 \pi L}^2 \right) G_T G_R
+\end{equation}
+
+
 % subsection link_budget (end)
 
 
@@ -62,7 +144,7 @@ In any RF receiver we are going to have at least some losses between the antenna
 We may evaluate the additional noise introduced my an attenuator $A_{f1}$ for example the one in Figure~\ref{fig:Teq} as:
 
 \begin{equation}
-	T_{f1}= T_0 (10^ { \frac {A_{f1}} {10} }-1)
+	T_{f1} = T_0 (10^{ \frac {A_{f1}} {10} }-1)
 \end{equation}
 
 % subsection noise_of_attenuators (end)
@@ -113,13 +195,101 @@ and to get $T_{eq}$ we may divide $T_{out}$ by the noiseless gain $\frac{G_{LNA}
 
 after some algebra it's clear that the two different approaches are absolutely equivalent.
 
-
-
-
-
 % subsection equivalent_temperature (end)
 
+
+\subsection{Noise Figure} % (fold)
+\label{sub:noise_figure}
+
+The Noise Figure is very usefull as it gives an immediate evaluation of the overall degration that a system gives to the SNR.
+
+Noise Figure is usually  calculate diving the overall noise of the system by the noise given by the source; this operation is usually done at the output but can be done in every point of the system.
+
+% subsection noise_figure (end)
+
+\subsection{Noise figue and equivalent temperature relationship} % (fold)
+\label{sub:noise_figue_and_equivalent_temperature_relationship}
+
+
+\begin{equation}
+	T_{eq}= T_0(10^{\frac{NF_{eq}}{10}}-1)
+\end{equation}
+
+where $T_0$ it's usually the room temperature considered $290^{\circ}C$.
+% subsection noise_figue_and_equivalent_temperature_relationship (end)
+
+
+\subsection{Datarate Limitation} % (fold)
+\label{sub:datarate_limitation}
+
+
+Given the modulation and demodulation scheme\footnote{Given the mod/demod scheme the energy transmitter per bit is fixed}, the bandwidth (B) and the minimum SNR required the maximum possible datarate (R) is limited by noise.
+
+Known the equivalent noise temperature ($T_{eq}=T_{sys}$) e can write:
+
+\begin{equation}	
+SNR = \frac{P_r}{KT_{sys}B}=\left(\frac{E_b}{N_0}\right)\left(\frac{R}{B}\right)
+\end{equation}
+
+
+% subsection datarate_limitation (end)
 
 % section radio_link (end)
 
 % chapter antennas (end)
+
+
+
+
+
+\chapter{Receivers} % (fold)
+\label{cha:receivers}
+
+
+\section{Image} % (fold)
+\label{sec:image}
+
+The problem of the image rises during the domodulation process when the RF signal is downconverted to an Intermediate Frequncy (IF) because of the mixer by means of the LO downconverts to IF both the RF signal and the Image which any signal at the same opposite distance\footnote{Note that this deistance is by definition IF} from the LO with respect to RF signal.
+
+\subsection*{Example} % (fold)
+\label{sub:example}
+
+Let's report an example for clarification\footnote{$1^{st}$ February 2017 exercise 1 question a)}:
+\begin{itemize}
+	\item $f_{RF}= 12 Ghz$ 
+	\item $f_{IF}= 140 Mhz$ 
+\end{itemize}
+
+we know that the local oscillator frequency (fLO) is above the signal band.
+
+Find the frequncy of the image is quite simple:
+
+
+\begin{equation}
+	f_{IF}=|f_{RF}-f_{LO}|
+\end{equation}
+
+from this we are able to find $f_{LO}$ and then:
+
+\begin{equation}
+		f_{IM}=f_{LO}-f_{IF}= f_{RF}-2f_{IF}
+\end{equation}
+
+\section{Cascaded Noise Figure} % (fold)
+\label{sec:cascaded_noise_figure}
+
+The evalutation of the Noise figure of cascaded stage could be performed with this formula:
+
+\begin{equation}
+	NF_{eq}= NF_1 + \frac{NF_2-1}{G_1} + \frac{NF_3-1}{G_1G_2} 
+\end{equation}
+
+% section cascaded_noise_figure (end)
+
+
+
+% subsection example (end)
+
+% section image (end)
+
+% chapter receivers (end)
