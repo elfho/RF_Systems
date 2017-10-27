@@ -44,6 +44,7 @@
 \contentsline {subsection}{\numberline {3.6.1}Output Power and non linearities}{15}{subsection.3.6.1}
 \contentsline {subsection}{\numberline {3.6.2}Back-Off}{15}{subsection.3.6.2}
 \contentsline {subsection}{\numberline {3.6.3}Power Added Efficiency (PAE)}{15}{subsection.3.6.3}
+\contentsline {subsection}{\numberline {3.6.4}Dynamic Range}{16}{subsection.3.6.4}
 \contentsline {section}{\numberline {3.7}Cascaded Stages}{16}{section.3.7}
 \contentsline {subsection}{\numberline {3.7.1}Cascaded Stage IIP3}{16}{subsection.3.7.1}
 \contentsline {subsection}{\numberline {3.7.2}Cascaded 1dB Compression Point}{16}{subsection.3.7.2}
