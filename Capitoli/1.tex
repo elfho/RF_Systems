@@ -120,7 +120,7 @@ Then:
 % subsection fields_intensity (end)
 
 
-\subsection{Efficienty of Antennas} % (fold)
+\subsection{Efficiency of Antennas} % (fold)
 \label{sub:efficienty_of_antennas}
 
 The impedance “seen” by the transmitter is determined by 2 contributes: $Z_R$ \footnote{radiation impedance} and $R_p$ \footnote{loss resistance}. The power dissipated by $Z_R$ constitutes the radiated power\footnote{Typically $R_p \ll |Z_R|$}.
@@ -151,7 +151,7 @@ The effective radiated power if simply defined as:
 Defined as:
 
 \begin{equation}
-	G = \eta D_M
+	G = \eta D_M=\frac{2\eta}{1-cos(\frac{\phi}{2})}
 \end{equation}
 
 the gain is one of the fundamental paraments that describes an antenna.
@@ -263,14 +263,26 @@ where:
 \subsection{Free-space Attenuation} % (fold)
 \label{sub:free_space_attenuation}
 
+While traveling in the atmosphere, fields are subject to non negligible attenuations, which obviously increases with disance and can be avaluated as:
+
 \begin{equation}
 	A_{dB} = 20log_{10} \left( \frac{4 \pi L}{\lambda} \right)
 \end{equation}
 
-
+Doing this calculation we should be carefull to use the wavelenght of the received power.
 % subsection free_space_attenuation (end)
 
+\subsection{Radar} % (fold)
+\label{sub:radar}
 
+Let's analyse a Radar setup in which we have a target with $\sigma = 1m^2$ of reflective surface and a Dish antenna as RX-TX device.
+We may add an additional term to the \textbf{Friis equation}:
+
+\begin{equation}
+	P_r= P_t - 20log_{10}\left( \frac{4\pi L}{\lambda}\right)+ G_t +G_r + 10log_{10}\left( \frac{4 \pi \sigma}{\lambda^2}\right)
+\end{equation}
+
+% subsection radar (end)
 
 
 
@@ -416,6 +428,17 @@ SNR = \frac{P_r}{KT_{sys}B}=\left(\frac{E_b}{N_0}\right)\left(\frac{R}{B}\right)
 \end{equation}
 
 
+\subsection{N-QAM Bandwidth specification} % (fold)
+\label{sub:n_qam}
+
+Let's remember that in a N-QAM modulation and demodulation scheme the required bandwidth to obtain a certain datarate decreses as N increses.
+Supposing to have Nyquist shaped pulses which a certain roll-off factor $\alpha$ we are able to evaluate the required bandwidth as:
+
+\begin{equation}
+	B= \frac {R(1+ \alpha)} {log_2(N_{QAM})}
+\end{equation}
+
+% subsection n_qam (end)
 % subsection datarate_limitation (end)
 
 % section radio_link (end)
@@ -423,67 +446,3 @@ SNR = \frac{P_r}{KT_{sys}B}=\left(\frac{E_b}{N_0}\right)\left(\frac{R}{B}\right)
 % chapter antennas (end)
 
 
-
-
-
-\chapter{Receivers} % (fold)
-\label{cha:receivers}
-
-
-\section{Image} % (fold)
-\label{sec:image}
-
-The problem of the image rises during the domodulation process when the RF signal is downconverted to an Intermediate Frequncy (IF) because of the mixer by means of the LO downconverts to IF both the RF signal and the Image which any signal at the same opposite distance\footnote{Note that this deistance is by definition IF} from the LO with respect to RF signal.
-
-\subsection*{Example} % (fold)
-\label{sub:example}
-
-Let's report an example for clarification\footnote{$1^{st}$ February 2017 exercise 1 question a)}:
-\begin{itemize}
-	\item $f_{RF}= 12 Ghz$ 
-	\item $f_{IF}= 140 Mhz$ 
-\end{itemize}
-
-we know that the local oscillator frequency (fLO) is above the signal band.
-
-Find the frequncy of the image is quite simple:
-
-
-\begin{equation}
-	f_{IF}=|f_{RF}-f_{LO}|
-\end{equation}
-
-from this we are able to find $f_{LO}$ and then:
-
-\begin{equation}
-		f_{IM}=f_{LO}-f_{IF}= f_{RF}-2f_{IF}
-\end{equation}
-
-% section image (end)
-
-\section{Cascaded Noise Figure} % (fold)
-\label{sec:cascaded_noise_figure}
-
-The evalutation of the Noise figure of cascaded stage could be performed with this formula:
-
-\begin{equation}
-	NF_{eq}= NF_1 + \frac{NF_2-1}{G_1} + \frac{NF_3-1}{G_1G_2} 
-\end{equation}
-
-% section cascaded_noise_figure (end)
-
-\section{Cascaded Stage IIP3} % (fold)
-\label{sec:cascaded_stage_iip3}
-
-\begin{equation}
-\left ( \frac {1} {IIP3} \right)^2 = \left( \frac {1} {IIP3_1}  \right)^2 + \left( \frac{G_1}{IIP3_2}  \right)^2 + \left( \frac {G_1G_2} {IIP3_3}  \right)^2 + ...\left( \frac {G_1G_2...G_{n-1}} {IIP3_n}  \right)^2
-\end{equation}
-
-
-
-% section cascaded_stage_iip3 (end)
-
-
-
-
-% chapter receivers (end)
