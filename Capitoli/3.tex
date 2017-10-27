@@ -141,7 +141,7 @@ In case of amplifiers $a_3$ is usually negative this means that as we increase t
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.5]{Immagini/1db}
-	
+	\caption{Graphical rappresentation of 1dB compression point}
 	\label{fig:1db}
 \end{figure}
 
@@ -154,6 +154,193 @@ At $P_{1dB}$ the output power is reduced of 1 dB with respect to the one given b
 
 
 % section 1db_compression_point (end)
+
+\section{Third order Intercept Point} % (fold)
+\label{sec:third_order_intercept_point}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.8]{Immagini/spec}
+	\caption{Third order intermodulation products in output spectrum}
+	\label{fig:spec}
+\end{figure}
+
+In Figure~\label{fig:spec} is rappresented a two-tone test and it's output highlighting the intermodulation product.
+A two-tone signal is the simplest rappresentation of an RF signal with a certain bandwidth.
+
+We note as the intermodulation products at $(2\omega_1-\omega_2)$ and $(2\omega_2-\omega_1)$ are very close to the signal and considering for example phase noise of the LO it's clear that they can bring to SNR degradation.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.8]{Immagini/ip3}
+	\caption{Third order intercept point graphical rappresentation}
+	\label{fig:ip3}
+\end{figure}
+
+
+From Figure~\label{fig:ip3} we can derive:
+
+\begin{equation}
+	P_{\omega_1}= 10log\left(\left( \frac{a_1A+(9/4)a_3A^3}{\sqrt{2}}\right)^2\frac{1000}{R}\right) \approx 10log\left(\left( \frac{a_1A}{\sqrt{2}}\right)^2\frac{1000}{R}\right)
+\end{equation}
+
+\begin{equation}
+	P_{2\omega_1-\omega_2}= 10log\left(\left( \frac{(3/4)a_3A^3}{\sqrt{2}}\right)^2\frac{1000}{R}\right)
+\end{equation}
+
+from which we can find $IP_3$:
+
+\begin{equation}
+	IP_3= 10log\left(\left( \frac{2}{3} \frac{a_1^3}{|a_3|}\right)\frac{1000}{R}\right)
+\end{equation}
+
+\begin{equation}
+	IP_3 = 10log\frac{a_1^3}{|a_3|}+11.25dBm   \ \ \ \ \ \ (R= 50\Omega)
+\end{equation}
+
+
+\subsection{$P_{1dB}$ and $IP_3$ Relationship} % (fold)
+\label{sub:_p_1dB_and_ip_3_relationship}
+
+From $IP_3$ and $P_{1dB}$ definition:
+
+\[
+\begin{cases}
+	IP_3 = 10log_{10}\left(\frac{a_1^3}{|a_3|}\right) + 11.25dBm\\
+	\\
+	P_{1dB}= 10log_{10}\left(\frac{a_1^3}{|a_3|}\right) +0.62dBm
+\end{cases}
+\]
+
+we get:
+
+\begin{equation}
+	IP_3= P_{1dB} + \Delta_p \ \ \ \ \ (\Delta_p = 10.63dB)
+\end{equation}
+% subsection _p_1db_and_ip_3_relationship (end)
+
+\subsection{Mean Power} % (fold)
+\label{sub:mean_power}
+
+$Pm =(P_{\omega_1}+3)$
+
+% subsection mean_power (end)
+
+
+\subsection{Carrier to Intermodulation ratio (CI)} % (fold)
+\label{sub:ci_carrier_to_intermodulation_ratio}
+
+
+
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[scale=0.4]{Immagini/ci}
+	\label{fig:ci}
+\end{figure}
+\begin{equation}
+	CI_{|dB} \approx 2IP_3 - 2P_m +6= 2(IP_3-P_0) \ \ \ \ \ considering P_{\omega_1} \ll IP_3
+\end{equation}
+
+ $Pm =(P_{\omega_1}+3)$ the average power of the two-tone signal.
+% subsection ci_carrier_to_intermodulation_ratio (end)
+
+
+\section{Power amplifiers} % (fold)
+\label{sec:power_amplifiers}
+
+
+\subsection{Output Power and non linearities} % (fold)
+\label{sub:output_power_and_non_linearities}
+
+When assigning the output power of a PA, also the corresponding level of
+nonlinear distortion it must be specified.
+The 2-tone signal is often using as reference excitation. In this case it is
+usual to specify the maximum PEP power for which the CI is equal to 30dB:
+
+
+\begin{equation}
+	PEP = P_m +3  \ \ \ \ \ (2 \ tones) 
+	\end{equation}
+\begin{equation}
+	30= 2IP_3-2(PEP-3)+6 \ \ \ \Longrightarrow \ \ \ PEP= IP_3-9 
+\end{equation}
+
+from $IP_3=P_{1dB}+\Delta_p$ we get:
+
+\begin{equation}
+	PEP= P_{1dB} + (\Delta_p -9 )   \ \ \ \ \ (for \  CI=30dB)
+\end{equation}
+% subsection output_power_and_non_linearities (end)
+
+
+\subsection{Back-Off} % (fold)
+\label{sub:back_off}
+
+The backoff of a PA is the difference in dB between the output power at $P_{1dB}$ and the average output power. From the previous equations, it can be obtained:
+
+\begin{equation}
+	BO\approx \frac{CI_{|dB}}{2}-\Delta_p-3 \ \ \ \ \ (2  \ tones)
+\end{equation}
+
+
+\subsection{Power Added Efficiency (PAE)} % (fold)
+\label{sub:power_added_efficiency}
+
+
+PAE in an important FoM for the ability of a PA to convert DC power to RF power:
+
+\begin{equation}
+	PAE= 100\frac{(RF \ Power \ at \ Load)- (RF \ Power \ at \ Input)}{DC \ power}\%
+\end{equation}
+
+In the design process we must take into account that to increase linearity PAE should be decreased.
+% subsection power_added_efficiency (end)
+% subsection back_off (end)
+
+\subsection{Dynamic Range} % (fold)
+\label{sub:dynamic_range}
+
+It quantifies the range of power allowed at the receiver input.
+The minimum power is defined by the sensitivity S.
+The maximum power is conventionally assumed as the mean power of a 2-tone signal producing a IM3 power (referred to the input) equal to the receiver sensitivity (S):
+\begin{equation}
+DR_{dB}= \frac{2}{3}(IIP_3+3-S_{dBm})	
+\end{equation}
+
+where:
+
+\begin{equation}
+	IIP_3=\frac{IP_3}{G_{tot}} Input \ Referred \ 3^{rd} order Intercept Point
+\end{equation}
+% subsection dinamic_range (end)
+
+\section{Cascaded Stages} % (fold)
+\label{sec:cascaded_stages}
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[scale=0.8]{Immagini/casip}
+	\caption{Example of a cascaded stage with third order non linearities.}
+	\label{fig:casip}
+\end{figure}
+
+% section cascaded_stages (end)
+\subsection{Cascaded Stage IIP3} % (fold)
+\label{sec:cascaded_stage_iip3}
+
+
+\begin{equation}
+\left ( \frac {1} {IIP3} \right)^2 = \left( \frac {1} {IIP3_1}  \right)^2 + \left( \frac{G_1}{IIP3_2}  \right)^2 + \left( \frac {G_1G_2} {IIP3_3}  \right)^2 + ...\left( \frac {G_1G_2...G_{n-1}} {IIP3_n}  \right)^2
+\end{equation}
+
+\subsection{Cascaded 1dB Compression Point}
+\begin{equation}
+\left ( \frac {1} {P_{1dB}} \right)^2 = \left( \frac {1} {P_{1_{1dB}}}  \right)^2 + \left( \frac{G_1}{P_{2_{1dB}}}  \right)^2 + \left( \frac {G_1G_2} {P_{3_{1dB}}}  \right)^2 + ...\left( \frac {G_1G_2...G_{n-1}} {P_{N_{1dB}}}  \right)^2
+\end{equation}
+
+
+% section third_order_intercept_point (end)
 
 
 % chapter non_linearities (end)
