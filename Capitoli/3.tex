@@ -99,12 +99,14 @@ where A$_f$, A$_{IM}$ are the amplitudes of the fundamental component and of the
 PEP it's the instantaneous power delivered at the peak of the modulated signal:
 
 
-\begin{figure}[h]
+\begin{figure}[ht]
 	\centering
 	\includegraphics[scale=0.5]{Immagini/pep}
 	
 	\label{fig:link}
 \end{figure}
+
+See also equation \ref{eq:pep}.
 
 % subsection peak_envelope_power_pep_ (end)
 
@@ -138,7 +140,7 @@ with:
 where $b_1$ rappresents the output of the signal at $\omega$ and we can notice that a non linear term is present $\frac{3}{4}a_3A^3$.
 In case of amplifiers $a_3$ is usually negative this means that as we increase the input signal amplitude as the non linear negative increase in respect to the linear term thus giving gain compression.
 
-\begin{figure}[h]
+\begin{figure}[ht]
 	\centering
 	\includegraphics[scale=0.5]{Immagini/1db}
 	\caption{Graphical rappresentation of 1dB compression point}
@@ -158,7 +160,7 @@ At $P_{1dB}$ the output power is reduced of 1 dB with respect to the one given b
 \section{Third order Intercept Point} % (fold)
 \label{sec:third_order_intercept_point}
 
-\begin{figure}[h]
+\begin{figure}[ht]
 	\centering
 	\includegraphics[scale=0.8]{Immagini/spec}
 	\caption{Third order intermodulation products in output spectrum}
@@ -170,7 +172,7 @@ A two-tone signal is the simplest rappresentation of an RF signal with a certain
 
 We note as the intermodulation products at $(2\omega_1-\omega_2)$ and $(2\omega_2-\omega_1)$ are very close to the signal and considering for example phase noise of the LO it's clear that they can bring to SNR degradation.
 
-\begin{figure}[h]
+\begin{figure}[ht]
 	\centering
 	\includegraphics[scale=0.8]{Immagini/ip3}
 	\caption{Third order intercept point graphical rappresentation}
@@ -221,21 +223,29 @@ we get:
 
 \subsection{Mean Power} % (fold)
 \label{sub:mean_power}
-
-$Pm =(P_{\omega_1}+3)$
-
+\begin{equation}
+Pm =(P_{\omega_1}+3)
+\end{equation}
 % subsection mean_power (end)
+
+
+\subsection{Input Referred $3^{rd}$ order Intercept Point ($IIP_3$)} % (fold)
+\label{sub:input_referred_3_rd_order_intercept_point_iip_3_}
+\begin{equation}
+	\label{eq:iip3}
+	IIP_3= \frac{IP_3}{Overall \ \ Gain}
+\end{equation}
+% subsection input_referred_3_rd_order_intercept_point_iip_3_ (end)
 
 
 \subsection{Carrier to Intermodulation ratio (CI)} % (fold)
 \label{sub:ci_carrier_to_intermodulation_ratio}
 
 
-
-
 \begin{figure}[ht]
 	\centering
 	\includegraphics[scale=0.4]{Immagini/ci}
+	\caption{Spectrum of Intermodulation Product}
 	\label{fig:ci}
 \end{figure}
 \begin{equation}
@@ -245,6 +255,25 @@ $Pm =(P_{\omega_1}+3)$
  $Pm =(P_{\omega_1}+3)$ the average power of the two-tone signal.
 % subsection ci_carrier_to_intermodulation_ratio (end)
 
+\subsection{Intermodulation Products} % (fold)
+\label{sub:intermodulation_products}
+
+With reference to Figure \ref{fig:ci}:
+\begin{equation}
+	P_{2\omega_{1}-\omega_{2}}=P_{2\omega_{2}-\omega_{1}}=3P_{\omega_1}-2IP_3
+\end{equation}
+% subsection intermodulation_products (end)
+
+
+\subsection{$2^{nd}$ order Intercept Point ($IP_2$)} % (fold)
+\label{sub:2_}
+
+From similar derivation as the one made for $IP_3$ and in particular from the $2^{nd}$ order non linearity applied to the third harmonic of the signal we get:
+
+\begin{equation}
+	IP_2= 20log\left(\frac{a_1}{a_2}\right)+13dBm
+\end{equation}
+% subsection 2_ (end)
 
 \section{Power amplifiers} % (fold)
 \label{sec:power_amplifiers}
@@ -260,6 +289,7 @@ usual to specify the maximum PEP power for which the CI is equal to 30dB:
 
 
 \begin{equation}
+	\label{eq:pep}
 	PEP = P_m +3  \ \ \ \ \ (2 \ tones) 
 	\end{equation}
 \begin{equation}
@@ -280,7 +310,7 @@ from $IP_3=P_{1dB}+\Delta_p$ we get:
 The backoff of a PA is the difference in dB between the output power at $P_{1dB}$ and the average output power. From the previous equations, it can be obtained:
 
 \begin{equation}
-	BO\approx \frac{CI_{|dB}}{2}-\Delta_p-3 \ \ \ \ \ (2  \ tones)
+	BO\approx \frac{CI_{|dB}}{2}-\Delta_p-3= P_{1dB}-P_m \ \ \ \ \ (2  \ tones)
 \end{equation}
 
 
@@ -333,6 +363,8 @@ where:
 \begin{equation}
 \left ( \frac {1} {IIP3} \right)^2 = \left( \frac {1} {IIP3_1}  \right)^2 + \left( \frac{G_1}{IIP3_2}  \right)^2 + \left( \frac {G_1G_2} {IIP3_3}  \right)^2 + ...\left( \frac {G_1G_2...G_{n-1}} {IIP3_n}  \right)^2
 \end{equation}
+
+The same approach could be applied also for $IP_3$ derivation taking into account the relationship \ref{eq:iip3}.
 
 \subsection{Cascaded 1dB Compression Point}
 \begin{equation}

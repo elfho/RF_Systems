@@ -1,0 +1,147 @@
+\begin{equation}
+	D ( \theta, \phi) = \frac {Radiation \ \ Intensity} {Isotropic \ \ Intensity } = \frac{ U(\theta , \phi)} {P_{rad}/ 4\pi} =  D(\theta , \phi) f(\theta , \phi) 
+\end{equation}
+
+\begin{equation}
+	f(\theta,\phi)=\frac{ \textit{D}(\theta,\phi)}{D_M} \ \ \ \Longrightarrow S_R(R,\theta,\phi)= \frac{P_{rad}}{4\pi R^2} D_M f(\theta,\phi)
+\end{equation}
+
+\begin{equation}
+	D_M=\frac{4 \pi }{ \int_0^{2\pi}\int_0^{2\pi} f(\theta,\phi)sin(\phi) d\theta d\phi}
+\end{equation}
+
+\begin{equation}
+	S_R=\frac{dP_{rad}}{ds}=\frac{1}{2}Re(E\times H^*)=\frac{1}{R^2}\textit{U}(\theta,\phi)
+\end{equation}
+
+\begin{equation}
+\textit{U}(\theta,\phi)= \frac{P_{rad}}{4\pi} \textit{D}(\theta, \phi)
+\end{equation}
+
+\begin{equation}
+S_R(R,\theta,\phi)= \frac{P_{rad}}{4\pi R^2} \textit{D}(\theta, \phi)
+\end{equation}
+
+\begin{equation}
+	P_{rad}= \iint_{\Sigma} S_R(R, \theta, \phi)\, d\Sigma = \frac{P_{rad}D_{MAX}}{4 \pi R^2}\iint_{\Sigma} f(\theta, \phi) \, d\Sigma
+\end{equation}
+
+\begin{equation}
+	P_{rad} = \frac {P_{rad}D_{MAX}}{4 \pi}\int_0^{ \pi}\int_0^{2 \pi} \sin(\theta) f(\theta, \phi) d\theta d\phi
+\end{equation}
+
+\begin{equation}
+	\frac{1}{D_{MAX}}=\frac{\eta}{G}= \frac{1}{4 \pi} \int_0^{\pi}\int_0^{2 \pi} \sin(\theta) f(\theta, \phi) d\theta d\phi
+\end{equation}
+
+\begin{equation}
+	G =\frac { 4\pi \eta}{\int_0^{ \pi}\int_0^{2 \pi} \sin(\theta) f(\theta, \phi) d\theta d\phi}
+\end{equation}
+
+\begin{equation}
+	S_R=\frac{1}{2}\frac{\sqrt{\epsilon_r}}{Z_0}|E|^2= \frac{1}{2}\frac{Z_0}{\sqrt{\epsilon_r}}|H|^2
+\end{equation}
+
+\begin{equation}	
+S_R= \frac{P_TG}{4 \pi R^2}
+\end{equation}
+
+\begin{equation}
+	|E| = \frac{1}{R} \sqrt{\frac{Z_0 P_{ERP}}{2\pi \sqrt{\epsilon_r}}} \ \ \ [V/m]
+\end{equation}
+
+\begin{equation}
+	|H| = \frac{1}{R} \sqrt{\frac{\sqrt{\epsilon_r} P_{ERP}}{2\pi Z_0}} \ \ \ [A/m]
+\end{equation}
+
+\begin{equation}
+	P_{ERP}= \eta D_M P_T f(\theta , \phi) = G_T P_T f(\theta , \phi)
+\end{equation}
+
+\begin{equation}
+  	\eta = \frac{P_{rad}}{P_T}= \frac{Re\{ Z_R \}}{Re\{ Z_R \}+R_p}
+  \end{equation}  
+
+\begin{equation}
+	P_{ERP} = P_TG 
+\end{equation}
+
+\begin{equation}
+	G = \eta D_M=\frac{2\eta}{1-cos(\frac{\phi}{2})}
+\end{equation}
+
+\begin{equation}
+	P_r=A_{\textit{e}} S_R f(\theta)
+\end{equation}
+
+\begin{equation}
+	\frac{G}{A_e}=\frac{4 \pi }{\lambda^2}
+\end{equation}
+
+\begin{equation}
+	G=A_e\frac{4 \pi}{\lambda^2}
+\end{equation}
+
+\begin{equation}
+	A_e = e_a \frac{1}{4} \pi d^2
+\end{equation}
+
+\begin{equation}
+	cos(\phi_B)=  1- \frac{2}{D_{MAX}}=  1 - \frac {2\eta} {\pi^2 e_a^2} \left( \frac{\lambda}{d} \right)^2
+\end{equation}
+
+\begin{equation}
+	\frac{\theta_{3dB}}{2}= \frac{180}{\pi}\sqrt{\frac{4\pi}{D_{MAX}}}
+\end{equation}
+
+\begin{equation}
+	A_{dB} = 20log_{10} \left( \frac{4 \pi L}{\lambda} \right)
+\end{equation}
+
+\begin{equation}
+	P_r= P_t - 20log_{10}\left( \frac{4\pi L}{\lambda}\right)+ G_t +G_r + 10log_{10}\left( \frac{4 \pi \sigma}{\lambda^2}\right)
+\end{equation}
+
+\begin{equation}	
+P_{r|_{dB}} = P_{t|_{dB}} - 10 \log{frac{\lambda}{4\pi R}} + G_{t|_{dB}} + G_{r|_{dB}} 
+\end{equation}
+
+\begin{equation}
+P_r = P_t  \left( \frac { \lambda } {4 \pi L}^2 \right) G_T G_R
+\end{equation}
+
+\begin{equation}
+	T_{f1} = T_0 (10^{ \frac {A_{f1}} {10} }-1)
+\end{equation}
+
+\begin{equation}
+	T_{sys}=T_{eq}= T_a + T_{f1} + T_{LNA} A_{f1}+ T_{f2} \frac { A_{f1} } {G_{LNA}} + T_{SSB} \frac { A_{f1} A_{f2} } {G_{LNA}}
+\end{equation}
+
+\begin{equation}
+	T_out = T_a\frac {G_{LNA}} {A_{f1} A_{f2} } + T_{f1}\frac { G_{LNA}} {A_{f1}A_{f2}} + T_{LNA}\frac{G_{LNA}}{A_{f2}}+ T_{f2}\frac{1}{A_{f2}} + T_{SSB} 
+\end{equation}
+
+\begin{equation}
+	T_{eq}=\frac{T_out}{\frac{G_{LNA}}{A_{f1}A_{f2}}}
+\end{equation}
+
+\begin{equation}
+	T_{eq}= T_0(10^{\frac{NF_{eq}}{10}}-1)
+\end{equation}
+
+\begin{equation}
+	NF = 10log\left(1+\frac{T_{eq}}{T_0}\right)
+\end{equation}
+
+\begin{equation}	
+SNR = \frac{P_r}{KT_{sys}B}=\left(\frac{E_b}{N_0}\right)\left(\frac{R}{B}\right)
+\end{equation}
+
+\begin{equation}
+	SNR_{sys}= P_{ERP}\frac{1}{L_f}\frac{1}{KB}\left( \frac{G_R}{T_{sys}}\right)
+\end{equation}
+
+\begin{equation}
+	B= \frac {R(1+ \alpha)} {log_2(N_{QAM})}
+\end{equation}

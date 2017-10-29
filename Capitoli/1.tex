@@ -10,7 +10,7 @@
 The power radiated by an antenna depends on the direction. The \textit{directive gain} toward a given direction is expressed as:
 
 \begin{equation}
-	D ( \theta, \phi) = \frac {Radiation \ \ Intensity} {Isotropic \ \ Intensity } = 	    \frac{ U(\theta , \phi)} {P_{rad}/ 4\pi}
+	D ( \theta, \phi) = \frac {Radiation \ \ Intensity} {Isotropic \ \ Intensity } = \frac{ U(\theta , \phi)} {P_{rad}/ 4\pi} =  D(\theta , \phi) f(\theta , \phi) 
 \end{equation}
 
 % subsection directive_gain (end)
@@ -118,7 +118,16 @@ Then:
 	|H| = \frac{1}{R} \sqrt{\frac{\sqrt{\epsilon_r} P_{ERP}}{2\pi Z_0}} \ \ \ [A/m]
 \end{equation}
 % subsection fields_intensity (end)
+where:
 
+\begin{equation}
+	P_{ERP}= \eta D_M P_T f(\theta , \phi) = G_T P_T f(\theta , \phi)
+\end{equation}
+and 
+
+$Z_0=\frac{377 \Omega}{\sqrt{\epsilon_r}}$ is characteristic impedence of the atmospheric medium\footnote{Air is always the case for us.}.
+
+% subsection p_ (end)
 
 \subsection{Efficiency of Antennas} % (fold)
 \label{sub:efficienty_of_antennas}
@@ -257,6 +266,18 @@ where:
 
 % subsection beamwidth (end)
 
+\subsection{3dB Beamwidth} % (fold)
+\label{sub:3db_beamwidth}
+
+We can define the 3dB Beamwidth $\theta_{3dB}$ the angle at which the directivuty function is halved.
+
+To evaluate it there is an empirical formula:
+
+\begin{equation}
+	\frac{\theta_{3dB}}{2}= \frac{180}{\pi}\sqrt{\frac{4\pi}{D_{MAX}}}
+\end{equation}
+
+% subsection 3db_beamwidth (end)
 
 
 
@@ -329,6 +350,7 @@ We may also report the linear form of the \textbf{Friis equation}:
 P_r = P_t  \left( \frac { \lambda } {4 \pi L}^2 \right) G_T G_R
 \end{equation}
 
+We should be carefull to the circuit topology as if after an LNA the Image Reject Filter in not present the LNA's noise is doubled by spectrum folding.
 
 % subsection link_budget (end)
 
@@ -406,9 +428,14 @@ Noise Figure is usually  calculate diving the overall noise of the system by the
 \subsection{Noise figue and equivalent temperature relationship} % (fold)
 \label{sub:noise_figue_and_equivalent_temperature_relationship}
 
+Obviously there's a direct relationship between Noise Figure and Equivalent Noise Temperature:
 
 \begin{equation}
 	T_{eq}= T_0(10^{\frac{NF_{eq}}{10}}-1)
+\end{equation}
+
+\begin{equation}
+	NF = 10log\left(1+\frac{T_{eq}}{T_0}\right)
 \end{equation}
 
 where $T_0$ it's usually the room temperature considered $290^{\circ}C$.
@@ -427,6 +454,15 @@ Known the equivalent noise temperature ($T_{eq}=T_{sys}$) e can write:
 SNR = \frac{P_r}{KT_{sys}B}=\left(\frac{E_b}{N_0}\right)\left(\frac{R}{B}\right)
 \end{equation}
 
+Where $N_0 \approx KT_{sys}$\\
+\\
+We may also remember this other formula which is often used in practical design:
+
+\begin{equation}
+	SNR_{sys}= P_{ERP}\frac{1}{L_f}\frac{1}{KB}\left( \frac{G_R}{T_{sys}}\right)
+\end{equation}
+
+Where $L_f$ stands for the overall losses contribution.
 
 \subsection{N-QAM Bandwidth specification} % (fold)
 \label{sub:n_qam}

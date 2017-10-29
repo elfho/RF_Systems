@@ -1,0 +1,166 @@
+\begin{equation}
+	V = Acos(\omega_1 t) + Acos(\omega_2t)+Acos(\omega_3t)+...
+\end{equation}
+
+\begin{equation}
+	P_a= NkA^2 = NP_t 
+\end{equation}
+
+\begin{equation}
+ 	P_p= k (NA)^2= N^2P_t
+ \end{equation} 
+
+\begin{equation}
+	F= \frac{P_p}{P_a}
+\end{equation}
+
+\begin{equation}
+	\omega = 2\omega_1 \pm \omega_2
+\end{equation}
+
+\begin{equation}
+	\omega = 2\omega_2 \pm \omega_1
+\end{equation}
+
+\begin{equation}
+A_{IM} = \frac{3\alpha_3A_1^2A_2}{4}
+\end{equation}
+
+\begin{equation}
+	A_{y,I} = \alpha_1A
+\end{equation}
+
+\begin{equation}
+	A_{y,IMP} = \frac{3}{4}\alpha_3 A^3
+\end{equation}
+
+\begin{equation}
+	A_{y,I}(IIP3) = A_{y,IMP}(IIP3)
+\end{equation}
+
+\begin{equation}
+	|\alpha_1A_{IIP3}| = |\frac{3}{4}\alpha_3A_{IIP3}^3|
+\end{equation}
+
+\begin{equation}
+	A_{IIP3} = \sqrt{\frac{4}{3}|\frac{\alpha_1}{\alpha_3}|}
+\end{equation}
+
+\begin{equation}
+	\Delta P = 20\log(A_{IIP3}) - 20\log(A_{in,1})
+\end{equation}
+
+\begin{equation}
+	\Delta P = 20\log(A_{IIP3}) - 20\log(A_{in,1}) = \frac{1}{2}(20\log(A_f) - 20\log(A_{IM}))
+\end{equation}
+
+\begin{equation}
+	20\log(A_{IIP3}) = \frac{\Delta P}{2} + 20\log(A_{in,1})
+\end{equation} 
+
+\begin{equation}
+	v_o=a_0+a_1v_i+a_2v_i^2+a_3v_i^3+...
+\end{equation}
+
+\begin{equation}
+	v_o=b_0+b_1cos(\omega_t) +b_2cos(2\omega_t) +b_3cos(3\omega_t) +...
+\end{equation}
+
+
+with:
+
+\begin{itemize}
+	\item $b_0= \frac{1}{2}a_2A^2$
+
+	\item $b_1= a_1A+\frac{3}{4}a_3A^3$
+
+	\item $b_2= \frac{1}{2}a_2A^2$
+
+	\item $b_3= \frac{1}{4}a_3A^3$
+\end{itemize}
+\begin{equation}
+	P_{1dB}= 10log_{10}\left( \frac{a_1^3}{|a_3|} \right)+0.62dBm
+\end{equation}
+
+\begin{equation}
+	P_{\omega_1}= 10log\left(\left( \frac{a_1A+(9/4)a_3A^3}{\sqrt{2}}\right)^2\frac{1000}{R}\right) \approx 10log\left(\left( \frac{a_1A}{\sqrt{2}}\right)^2\frac{1000}{R}\right)
+\end{equation}
+
+\begin{equation}
+	P_{2\omega_1-\omega_2}= 10log\left(\left( \frac{(3/4)a_3A^3}{\sqrt{2}}\right)^2\frac{1000}{R}\right)
+\end{equation}
+
+\begin{equation}
+	IP_3= 10log\left(\left( \frac{2}{3} \frac{a_1^3}{|a_3|}\right)\frac{1000}{R}\right)
+\end{equation}
+
+\begin{equation}
+	IP_3 = 10log\frac{a_1^3}{|a_3|}+11.25dBm   \ \ \ \ \ \ (R= 50\Omega)
+\end{equation}
+
+
+\[
+\begin{cases}
+	IP_3 = 10log_{10}\left(\frac{a_1^3}{|a_3|}\right) + 11.25dBm\\
+	\\
+	P_{1dB}= 10log_{10}\left(\frac{a_1^3}{|a_3|}\right) +0.62dBm
+\end{cases}
+\]
+\begin{equation}
+	IP_3= P_{1dB} + \Delta_p \ \ \ \ \ (\Delta_p = 10.63dB)
+\end{equation}
+
+\begin{equation}
+Pm =(P_{\omega_1}+3)
+\end{equation}
+
+\begin{equation}
+	\label{eq:iip3}
+	IIP_3= \frac{IP_3}{Overall \ \ Gain}
+\end{equation}
+\begin{equation}
+	CI_{|dB} \approx 2IP_3 - 2P_m +6= 2(IP_3-P_0) \ \ \ \ \ considering P_{\omega_1} \ll IP_3
+\end{equation}
+
+\begin{equation}
+	P_{2\omega_{1}-\omega_{2}}=P_{2\omega_{2}-\omega_{1}}=3P_{\omega_1}-2IP_3
+\end{equation}
+
+\begin{equation}
+	IP_2= 20log\left(\frac{a_1}{a_2}\right)+13dBm
+\end{equation}
+
+\begin{equation}
+	\label{eq:pep}
+	PEP = P_m +3  \ \ \ \ \ (2 \ tones) 
+\end{equation}
+\begin{equation}
+	30= 2IP_3-2(PEP-3)+6 \ \ \ \Longrightarrow \ \ \ PEP= IP_3-9 
+\end{equation}
+
+\begin{equation}
+	PEP= P_{1dB} + (\Delta_p -9 )   \ \ \ \ \ (for \  CI=30dB)
+\end{equation}
+
+\begin{equation}
+	BO\approx \frac{CI_{|dB}}{2}-\Delta_p-3= P_{1dB}-P_m \ \ \ \ \ (2  \ tones)
+\end{equation}
+
+\begin{equation}
+	PAE= 100\frac{(RF \ Power \ at \ Load)- (RF \ Power \ at \ Input)}{DC \ power}\%
+\end{equation}
+
+\begin{equation}
+DR_{dB}= \frac{2}{3}(IIP_3+3-S_{dBm})	
+\end{equation}
+
+\begin{equation}
+	IIP_3=\frac{IP_3}{G_{tot}} Input \ Referred \ 3^{rd} order Intercept Point
+\end{equation}
+
+\begin{equation}
+\left ( \frac {1} {IIP3} \right)^2 = \left( \frac {1} {IIP3_1}  \right)^2 + \left( \frac{G_1}{IIP3_2}  \right)^2 + \left( \frac {G_1G_2} {IIP3_3}  \right)^2 + ...\left( \frac {G_1G_2...G_{n-1}} {IIP3_n}  \right)^2
+\end{equation}
+\begin{equation}
+\left ( \frac {1} {P_{1dB}} \right)^2 = \left( \frac {1} {P_{1_{1dB}}}  \right)^2 + \left( \frac{G_1}{P_{2_{1dB}}}  \right)^2 + \left( \frac {G_1G_2} {P_{3_{1dB}}}  \right)^2 + ...\left( \frac {G_1G_2...G_{n-1}} {P_{N_{1dB}}}  \right)^2
+\end{equation}
